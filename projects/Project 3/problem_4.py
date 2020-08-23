@@ -7,6 +7,7 @@ def sort_012(input_list):
     """
     pass
 
+
 def test_function(test_case):
     sorted_array = sort_012(test_case)
     print(sorted_array)
@@ -14,6 +15,7 @@ def test_function(test_case):
         print("Pass")
     else:
         print("Fail")
+
 
 test_function([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2])
 test_function([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1])
