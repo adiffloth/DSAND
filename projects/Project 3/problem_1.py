@@ -8,43 +8,36 @@ def sqrt(number):
        int: Floored Square Root
     """
 
+    # Handle edge cases.
     if number is None:
         return None
-
     if number < 0:
         return -1
-
     if number == 0:
         return 0
 
-    lower = 1
-    upper = number
-
-    while lower <= upper:
-        midpt_guess = (lower + upper) // 2
-        square = midpt_guess ** 2
-        plus_one_square = (midpt_guess + 1) ** 2
-        if square <= number < plus_one_square:  # Current guess is the sqrt, or incrementing guess goes too far.
-            return midpt_guess
-        elif square > number:  # Current guess is too high, search in the lower half.
-            upper = midpt_guess
-        else:  # Current guess is too low, search in the upper half.
-            lower = midpt_guess
+    return sqrt_bin_search(number, 1, number)
 
 
-def binary_search_recursive_soln(array, target, start_index, end_index):
-    if start_index > end_index:
-        return -1
+def sqrt_bin_search(target, lower, upper):
+    # Recursive binary search for the square root of a target.
+    midpt_guess = (lower + upper) // 2
+    square = midpt_guess ** 2
+    plus_one_square = (midpt_guess + 1) ** 2
 
-    mid_index = (start_index + end_index) // 2
-    mid_element = array[mid_index]
+    # The square of the current guess is exactly the target, or going one more
+    # will be too much, so the current guess is right floor sqrt.
+    if square <= target < plus_one_square:
+        return midpt_guess
 
-    if mid_element == target:
-        return mid_index
-    elif target < mid_element:
-        return binary_search_recursive_soln(array, target, start_index, mid_index - 1)
+    # The target is less than the square of the current guess, so recursively
+    # search the numbers to the left of the current midpoint guess.
+    elif target < square:
+        return sqrt_bin_search(target, lower, midpt_guess - 1)
+
+    # The target is greater than, so recurse on the right side.
     else:
-        return binary_search_recursive_soln(array, target, mid_index + 1, end_index)
+        return sqrt_bin_search(target, midpt_guess + 1, upper)
 
 
 # Tests
