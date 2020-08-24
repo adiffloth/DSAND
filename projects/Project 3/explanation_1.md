@@ -8,6 +8,6 @@ To implement the binary search, we define the search range from 1 to the number,
 
 If the square of the midpoint is the input number, then the midpoint is the exact square root. If the square is less than the number, but the next square (adding one to midpoint and squaring) causes us to overshoot the input number, then the current guess is correct since we're looking for the floor square root.
 
-If the square of the midpoint is greater than the input number, then our current guess is too high and we repeat the search in the lower half. Otherwise (the current guess is too low), we search in the upper half.
+If the square of the midpoint is greater than the input number, then our current guess is too high and we recursively search in the lower half. Otherwise (the current guess is too low), we recursively search in the upper half.
 
 This halving of the search array with each loop is what gives us O(log n).
