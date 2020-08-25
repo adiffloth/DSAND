@@ -1,3 +1,38 @@
+def mergesort(items):
+
+    if len(items) <= 1:
+        return items
+
+    mid = len(items) // 2
+    left = items[:mid]
+    right = items[mid:]
+
+    left = mergesort(left)
+    right = mergesort(right)
+
+    return merge(left, right)
+
+
+def merge(left, right):
+
+    merged = []
+    left_index = 0
+    right_index = 0
+
+    while left_index < len(left) and right_index < len(right):
+        if left[left_index] > right[right_index]:
+            merged.append(right[right_index])
+            right_index += 1
+        else:
+            merged.append(left[left_index])
+            left_index += 1
+
+    merged += left[left_index:]
+    merged += right[right_index:]
+
+    return merged
+
+
 def rearrange_digits(input_list):
     """
     Rearrange Array Elements so as to form two number such that their sum is maximum.
@@ -7,7 +42,21 @@ def rearrange_digits(input_list):
     Returns:
        (int),(int): Two maximum sums
     """
-    pass
+
+    # Sort the list with merge sort
+    sorted_list = mergesort(input_list)
+
+    # Build the two numbers by pulling from the sorted list in reverse order and adding
+    # alternatively to each number.
+    first_str = ''
+    second_str = ''
+    for i, num in enumerate(reversed(sorted_list)):
+        if i % 2 == 0:
+            first_str += str(num)
+        else:
+            second_str += str(num)
+
+    return int(first_str), int(second_str)
 
 
 def test_function(test_case):
@@ -19,5 +68,7 @@ def test_function(test_case):
         print("Fail")
 
 
+# Tests
+test_function([[1, 2], [1, 2]])  # Two entry list
 test_function([[1, 2, 3, 4, 5], [542, 31]])
-test_case = [[4, 6, 2, 5, 9, 8], [964, 852]]
+test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
