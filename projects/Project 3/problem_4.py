@@ -5,7 +5,20 @@ def sort_012(input_list):
     Args:
        input_list(list): List to be sorted
     """
-    pass
+
+    # Counting sort
+    zeros = 0
+    ones = 0
+    twos = 0
+    for num in input_list:
+        if num == 0:
+            zeros += 1
+        elif num == 1:
+            ones += 1
+        else:
+            twos += 1
+
+    return [0] * zeros + [1] * ones + [2] * twos
 
 
 def test_function(test_case):
