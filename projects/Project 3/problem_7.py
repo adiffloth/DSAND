@@ -104,5 +104,6 @@ assert router.lookup("/home/about/") == 'about handler'  # Trailing /
 assert router.lookup("/home/about/me") == 'not found handler'  # Terminal 404
 assert router.lookup('/home/about/contact') == 'contact handler'
 assert router.lookup('/home/about/cont') == 'not found handler'
+assert router.lookup('') == 'root handler'
 
 print('Tests passed')
