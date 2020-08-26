@@ -10,4 +10,6 @@ If the square of the midpoint is the input number, then the midpoint is the exac
 
 If the square of the midpoint is greater than the input number, then our current guess is too high and we recursively search in the lower half. Otherwise (the current guess is too low), we recursively search in the upper half.
 
-This halving of the search array with each loop is what gives us O(log n).
+Time complexity: The halving of the search array with each loop is what gives us O(log n) time complexity.
+
+Space complexity: Since we're not creating any new variables other than single placeholders, the space complexity is O(1).

@@ -43,6 +43,9 @@ def rearrange_digits(input_list):
        (int),(int): Two maximum sums
     """
 
+    if len(input_list) <= 1:
+        return input_list
+
     # Sort the list with merge sort
     sorted_list = mergesort(input_list)
 
@@ -69,6 +72,11 @@ def test_function(test_case):
 
 
 # Tests
-test_function([[1, 2], [1, 2]])  # Two entry list
-test_function([[1, 2, 3, 4, 5], [542, 31]])
-test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+print
+test_function([[], []])  # Empty list
+test_function([[1], [1]])  # One element list
+test_function([[1, 2], [1, 2]])  # Two element list
+test_function([[0, 0, 0, 0, 0], [0, 0]])  # Zeros
+test_function([[1, 2, 3, 4, 5], [542, 31]])  # Multiple elements, in order
+test_function([[4, 6, 2, 5, 9, 8], [964, 852]])  # Multiple elements, out of order
+test_function([[5, 5, 7, 3, 9, 9, 9], [9953, 975]])  # Duplicate numbers
