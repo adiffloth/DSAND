@@ -1,3 +1,6 @@
+**/.gitignore
+*.zip
+**/.DS_Store
 .DS_Store
 /.vscode
 /1-Intro
