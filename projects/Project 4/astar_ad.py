@@ -5,7 +5,9 @@ import heapq
 """
 I implemented the pseudo code given by the Mentor Hemang G in the 3rd comment in this post: https://knowledge.udacity.com/questions/244266. Note: I used the pseudo code in the mentor's response, not the code in the student's question.
 
-I also referenced this article: https://www.redblobgames.com/pathfinding/a-star/implementation.html.
+As suggested in the forums, I referenced this article: https://www.redblobgames.com/pathfinding/a-star/implementation.html.
+
+I also referred to this GitHub repo for the logic retrace my steps and build the path: https://github.com/aldajo92/Udacity-Implement-Route-Planner/blob/master/01_route_planner.py
 """
 
 
