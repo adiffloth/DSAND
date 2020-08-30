@@ -29,13 +29,14 @@ def load_map(name):
 def show_map(M, start=None, goal=None, path=None):
     G = M._graph
     # pos = nx.get_node_attributes(G, 'pos')
-    edge_trace = Scatter(x=[], y=[], line=Line(width=0.5, color='#888'), hoverinfo='none', mode='lines')
+    edge_trace = Scatter(x=[], y=[], line=Line(width=0.5, color='#888'), hoverinfo='text', mode='lines')
 
     for edge in G.edges():
         x0, y0 = G.node[edge[0]]['pos']
         x1, y1 = G.node[edge[1]]['pos']
         edge_trace['x'] += [x0, x1, None]
         edge_trace['y'] += [y0, y1, None]
+        edge_trace['text'] = 'whoopee'
 
     node_trace = Scatter(
         x=[],
@@ -67,11 +68,11 @@ def show_map(M, start=None, goal=None, path=None):
     for node, adjacencies in enumerate(G.adjacency_list()):
         color = 0
         if path and node in path:
-            color = 2
+            color = 1
         if node == start:
             color = 3
         elif node == goal:
-            color = 1
+            color = 2
         # node_trace['marker']['color'].append(len(adjacencies))
         node_trace['marker']['color'].append(color)
         node_info = "Intersection " + str(node)

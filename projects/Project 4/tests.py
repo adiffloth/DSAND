@@ -8,7 +8,7 @@ MAP_40_ANSWERS = [
 
 
 def test(shortest_path_function):
-    map_40 = load_map('map-40.pickle')
+    map_40 = load_map('/Users/ad7073/Documents/Sharpen the saw/Udacity/DSAND/projects/Project 4/map-40.pickle')
     correct = 0
     for start, goal, answer_path in MAP_40_ANSWERS:
         path = shortest_path_function(map_40, start, goal)
